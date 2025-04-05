@@ -1,35 +1,59 @@
+:root {
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: azure;
+}
+
 .images-container {
-    width: 22.5%;
-    height: 500px;
     background-color: whitesmoke;
-    padding: 10px;
-    padding-bottom: 180px;
     border: 1px round grey;
     border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 10px;
+    overflow: hidden;
     text-align: center;
+}
+
+.images-container:hover {
+    transform: translateY(-5);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 .images {
     object-fit: cover; /*This crops an image to maintain ratio and ensure the img does not distort*/
+    height: 250px;
     width: 100%;
-    height: 100%;
-}
-
-body {
-    background-color: azure;
 }
 
 .card-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: space-between;
-    height: 100vh;
-    width: 95vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 1rem;
+    background-color: rgb(170, 211, 198);
+    padding: 5px 15px;
 }
 
-main {
-    height: 100vh;
-    width: 100vw;
+.book-author {
+    color: rgb(215, 79, 124);
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.book-title {
+    color: black;
+    font-size: 1.2rem;
+    margin: 8px 0;
+}
+
+.book-info {
+    font-size: 0.8rem;
+    margin: 5px 0;
 }
