@@ -27,6 +27,7 @@ body {
     padding: 10px;
     overflow: hidden;
     text-align: center;
+    position: relative;
 }
 
 .images-container:hover {
@@ -48,6 +49,11 @@ body {
     gap: 1rem;
     background-color: rgb(170, 211, 198);
     padding: 5px 15px;
+}
+
+/* BookConnect 3 every 2nd card background purple */
+.card-container .images-container:nth-child(2n) {
+    background-color: rgb(138, 88, 185);
 }
 
 .book-author {
@@ -143,3 +149,66 @@ body {
     padding: 1rem;
 }
 
+.top-rated-books::before {
+    content: "📖";
+}
+
+#book-container-journeys-in-english::after, #book-container-years-of-ordeal::after {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    content: "I'm New!";
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: red;
+    padding: 0.5rem 2rem;
+    border-radius: 0.3rem;
+}
+
+#book-container-dan-brown::after {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    content: "Out Of Stock";
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: blue;
+    padding: 0.5rem 2rem;
+    border-radius: 0.3rem;
+}
+
+#book-container-dan-brown {
+    opacity: 0.5;
+}
+
+/* Animate the button to spin forwards (illusion) then spin opposite back */
+/* Animated button for competions */
+.sticky-button-competition {
+    background-color: orange;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.sticky-button-container {
+    width: 280px;
+    padding: 1.5rem;
+    animation: scale 2s ease-in-out 1s 2 alternate none;
+    position: fixed;
+    z-index: 5;
+    top: 80%;
+}
+
+@keyframes scale {
+    from {
+        left: 0;
+        transform: rotate(0deg) scale(1) translateX(0%);
+    }
+    to {
+        left: 50%;
+        transform: rotate(360deg) scale(2) translateX(-50%);
+    }
+}
