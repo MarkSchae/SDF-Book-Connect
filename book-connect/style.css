@@ -10,12 +10,31 @@
 :root {
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
+    /* Book Connect four responsive font */
+
+    /* Body Text (12px to 16px) → 0.857rem to 1.143rem */
+    --font-size-body: clamp(0.857rem, calc(0.857rem + (0.286 * (100vw - 320px)) / 220), 1.143rem);
+
+    /* Small Headings (14px to 22px) → 1rem to 1.571rem */
+    --font-size-small-heading: clamp(1rem, calc(1rem + (0.571 * (100vw - 320px)) / 220), 1.571rem);
+
+    /* Big Headings (18px to 48px) → 1.286rem to 3.429rem */
+    --font-size-big-heading: clamp(1.286rem, calc(1.286rem + (2.143 * (100vw - 320px)) / 220), 3.429rem);
+        
+    /* Optional: Line heights for readability */
+    --line-height-body: 1.6;
+    --line-height-headings: 1.4;
 }
 
 body {
     margin: 0;
     padding: 0;
     background-color: azure;
+}
+
+/* Just using this to check overflow items when channging creecn sizes */
+html, body {
+    overflow: hidden;
 }
 
 .images-container {
@@ -59,17 +78,17 @@ body {
 .book-author {
     color: rgb(215, 79, 124);
     margin: 5px 0;
-    font-size: 1rem;
+    font-size: var(--font-size-small-heading);
 }
 
 .book-title {
     color: black;
-    font-size: 1.2rem;
+    font-size: var(--font-size-small-heading);
     margin: 8px 0;
 }
 
 .book-info {
-    font-size: 0.8rem;
+    font-size: var(--font-size-body);
     margin: 5px 0;
 }
 
@@ -143,10 +162,12 @@ body {
     align-items: center;
     padding: 1rem;
     gap: 1rem;
+    font-size: var(--font-size-body);
 }
 
 .top-rated-books-heading {
     padding: 1rem;
+    font-size: var(--font-size-small-heading);
 }
 
 .top-rated-books::before {
@@ -159,7 +180,7 @@ body {
     left: 10px;
     content: "I'm New!";
     color: white;
-    font-size: 1rem;
+    font-size: var(--font-size-small-heading);
     font-weight: bold;
     background-color: red;
     padding: 0.5rem 2rem;
@@ -172,7 +193,7 @@ body {
     left: 10px;
     content: "Out Of Stock";
     color: white;
-    font-size: 1rem;
+    font-size: var(--font-size-small-heading);
     font-weight: bold;
     background-color: blue;
     padding: 0.5rem 2rem;
@@ -190,9 +211,10 @@ body {
     padding: 2rem;
     border-radius: 1.5rem;
     color: white;
-    font-size: 1.2rem;
+    font-size: var(--font-size-small-heading);
 }
 
+/* This button needs work, need to sort out the layering so that the button does not block the visibility of other elements or move of the screen during the animation */
 .sticky-button-container {
     width: 280px;
     padding: 1.5rem;
@@ -212,3 +234,6 @@ body {
         transform: rotate(360deg) scale(2) translateX(-50%);
     }
 }
+
+/* Book Connect four */
+
