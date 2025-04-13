@@ -10,7 +10,7 @@
 :root {
     font-size: 14px;
     font-family: Arial, Helvetica, sans-serif;
-    /* Book Connect four responsive font */
+    /* Book Connect four responsive fonts and other elements */
 
     /* Body Text (12px to 16px) → 0.857rem to 1.143rem */
     --font-size-body: clamp(0.857rem, calc(0.857rem + (0.286 * (100vw - 320px)) / 220), 1.143rem);
@@ -24,6 +24,13 @@
     /* Optional: Line heights for readability */
     --line-height-body: 1.6;
     --line-height-headings: 1.4;
+
+    --button-width: clamp(5rem, 10vw + 5rem, 20rem);
+
+    --input-width: clamp(0.36rem, calc(11.98vw + 0.36rem), 12.837rem);  /* Max: 12.837rem (179.7px), Min: 0.36rem (5px) */
+    --input-width-small-screen: clamp(5rem, calc(0.298rem + 24.46vw), 11.43rem);
+
+
 }
 
 body {
@@ -34,7 +41,7 @@ body {
 
 /* Just using this to check overflow items when channging creecn sizes */
 html, body {
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .images-container {
@@ -99,10 +106,13 @@ html, body {
     background-color: darkslategray;
     align-content: center;
     padding: 1rem;
+    font-size: var(--font-size-body);
+    flex-wrap: wrap;
 }
 
 .navbar-heading-container {
     color: aliceblue;
+    font-size: var(--font-size-big-heading);
 }
 
 .navbar-inputs-container {
@@ -114,6 +124,7 @@ html, body {
 .navbar-input {
     padding: 0.5rem;
     border-radius: 1rem;
+    width: var(--input-width);
 }
 
 .nav-book-page-turn-img-container {
@@ -216,12 +227,13 @@ html, body {
 
 /* This button needs work, need to sort out the layering so that the button does not block the visibility of other elements or move of the screen during the animation */
 .sticky-button-container {
-    width: 280px;
+    width: var(--button-width);
     padding: 1.5rem;
     animation: scale 2s ease-in-out 1s 2 alternate none;
     position: fixed;
     z-index: 5;
     top: 80%;
+    aspect-ratio: 1 / 1;
 }
 
 @keyframes scale {
@@ -237,3 +249,14 @@ html, body {
 
 /* Book Connect four */
 
+@media (max-width:467px) {
+    .navbar-inputs-container {
+        display: flex;
+        flex-direction: column;
+    }
+    .navbar-input {
+        width: var(--input-width-small-screen);
+    }
+}
+
+/* Would like to dynamically add 'new books coming soon into the empty grid slot when the screen size fits 3 columns leaving the bot row with a empty slot in the grid' */
